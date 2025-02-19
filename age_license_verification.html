@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<HTML>
+<h1> 
+<p> Welcome </p>
+<title> user </title>
+</h1>
+<form method="POST"> <!-- Problem - without this, click on the right, investigate, network, and then Method=GET will appear. The form needed to be modified slightly-->
+
+<label> Your Name: </label><br>
+<input type="text" value="" name="name"><br>
+
+<label> Your Age: </label><br>
+<input type="number" value="" name="age"><br>
+
+<label> Your License: </label><br>
+<input type="text" value="
+<?php 
+if(isset($_POST['connection'])) /*'If' statement checks if POST is set,
+ without the POST method, the PHP code does nothing since no POST request was made. */
+{
+	$name=$_POST['name'];
+	$age=$_POST['age'];
+	
+	if($age < 18){
+		echo 'No.';
+	}
+	
+	elseif($age < 50){
+		echo 'Yes.';
+	}
+
+else {
+echo $age." ???";
+}
+}
+?>
+
+" name="connection">
+<input type="submit" value="submit" name="license"><br>
+</form>
+</body>
+</html>
